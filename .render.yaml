@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: your-app-name
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: build
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+    redirects:
+      - source: /*
+        destination: /index.html
+        status: 200
